@@ -11,7 +11,7 @@ const { db } = require('../utils/dbMongo');
 // toNumber()
 
 const createLanding = async (req, res) => {
-    console.log(req.body);
+
     try {
         const lan = req.body;
         await Landing.create(lan);
@@ -22,20 +22,20 @@ const createLanding = async (req, res) => {
 }
 
 const getLandingsQuery = async(req, res) => {
-    let data;
-    // const { from, to } = req.query;
+
+    const { from, to,minimum_mass } = req.query;
     try {
-        if(req.query.from){
-            data = await Landing.find({'year': {$gte: req.query.from}}, 'name mass year -_id')
+        if(from){
+            let data = await Landing.find({'year': {$gte: from}}, 'name mass year -_id')
             res.status(200).json(data);
-        } else if(req.query.from && req.query.to){
-            data = await Landing.find({'year': {$gte: req.query.from, $lte: req.query.to}}, 'name mass year -_id')
+        } else if(from && to){
+            let data = await Landing.find({'year': {$gte: from, $lte: to}}, 'name mass year -_id')
             res.status(200).json(data);
-        } else if(req.query.to){
-           data = await Landing.find({'year': {$lte: req.query.to}}, 'name mass year -_id')
-            res.status(200).json(data);
-        } else if (req.query.minimum_mass) {
-            data = await Landing.find({ 'mass': { $gte: req.query.minimum_mass } }, 'name recclass -_id')
+        } else if(to){
+           let data = await Landing.find({'year': {$lte: to}}, 'name mass year -_id')
+           res.status(200).json(data);
+        } else if (minimum_mass) {
+            let data = await Landing.find({ 'mass': { $gte: minimum_mass } }, 'name recclass -_id')
             res.status(200).json(data);
         }
     } catch (error) {
@@ -77,10 +77,7 @@ const getLandingClass = async(req, res) => {
 };
 
 const editLanding = async (req, res) => {
-    let data;
-    console.log('reaccctt');
-    console.log(req.body);
-    console.log(req.params.id);
+
     try {
         if (req.params.id) {
             const newLand = req.body
@@ -101,7 +98,7 @@ const deleteLanding = async (req, res) => {
     try {
         if (req.params.id) {
             await Landing.deleteOne({ id: req.params.id })
-            res.status(204).send('Borrado');
+            res.status(204).send('Landing Deleted');
         } else {
             
         }
