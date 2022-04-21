@@ -9,7 +9,7 @@ app.use(express.static('public'));//le decimos a express donde
 app.set('views', './views');//Donde se guardan las views
 app.use(express.urlencoded());
 
-app.use("/",router_nasa);// API products  importado desde routers
+app.use("/api",router_nasa);// API products  importado desde routers
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
   });
