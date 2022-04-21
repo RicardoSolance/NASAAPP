@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const landing = require('../controllers/controllers_landing')
+const neas = require('../controllers/controllers_neas')
 
 // ---------------------------------- L A N D I N G S -----------------------------------------------------
     //GET para obtener los nombres y clase de aquellos meteoritos cuya clase sea la registrada (route params)​
@@ -13,5 +14,12 @@ const landing = require('../controllers/controllers_landing')
     router.delete("/astronomy/landings/delete/:id?", landing.deleteLanding);
 
 // ---------------------------------- N E A S -----------------------------------------------------
+
+router.get("/astronomy/neas", neas.getNeas);
+router.post("/astronomy/neas/create", neas.createNeas);
+router.put("/astronomy/neas/edit/:designation?", neas.editNeas);
+router.delete("/astronomy/neas/delete/:designation?", neas.deleteNeas);
+
+
 
 module.exports = router;

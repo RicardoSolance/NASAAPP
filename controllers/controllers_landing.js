@@ -17,7 +17,7 @@ const createLanding = async (req, res) => {
         await Landing.create(lan);
         res.status(201).json({"messsage": "landi created"})
     } catch (error) {
-        
+        res.status(400).json({'error': error})
     }
 }
 
