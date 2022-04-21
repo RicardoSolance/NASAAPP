@@ -2,7 +2,6 @@ const Neas = require('../models/model_neas');
 const { db } = require('../utils/dbMongo');
 
 const createNeas= async (req,res)=>{
- 
     try {
         const nea = req.body;
         await Neas.create(nea);
@@ -13,19 +12,20 @@ const createNeas= async (req,res)=>{
 }
 
 const getNeas = async (req, res) => {
-    console.log('esto trae req.params',req.query);
+    const { from, to } = req.query;
+    let clase = req.query.class
     try {
-        if (req.query.class) {
-            let data = await Neas.find({ orbit_class: req.query.class }, "designation discovery_date orbit_class -_id")
+        if (clase) {
+            let data = await Neas.find({ orbit_class: clase }, "designation discovery_date orbit_class -_id")
             res.status(200).json(data);
-        } else if (req.query.from && req.query.to) {
-            let data = await Neas.find({ discovery_date: { $gte: req.query.from, $lte: req.query.to }},"designation discovery_date -_id");
+        } else if (from && to) {
+            let data = await Neas.find({ discovery_date: { $gte:from, $lte: to}},"designation discovery_date -_id");
             res.status(200).json(data);
-        } else if (req.query.from) {
-            let data = await Neas.find({ discovery_date: { $gte: req.query.from } }, 'designation discovery_date -_id');
+        } else if (from) {
+            let data = await Neas.find({ discovery_date: { $gte: from } }, 'designation discovery_date -_id');
             res.status(200).json(data);
-        } else if (req.query.to) {
-            let data = await Neas.find({ discovery_date: { $lte: req.query.to } }, 'designation discovery_date -_id');
+        } else if (to) {
+            let data = await Neas.find({ discovery_date: { $lte: to } }, 'designation discovery_date -_id');
             res.status(200).json(data);
         }
     } catch (error) {
@@ -52,7 +52,6 @@ const editNeas = async (req, res) => {
 }
 
 const deleteNeas = async (req, res) => {
-    console.log('por lo menos entra');
     let designation = req.params.designation;
     try {
         if (designation) {
