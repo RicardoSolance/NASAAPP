@@ -1,7 +1,7 @@
 require("dotenv").config(); //PARA las variables de entorno
 const express = require('express');
 const app = express()
-const port = 3000;
+const port = process.env.PORT || 3000;
 const router_nasa= require('./routes/router_nasa.js')
 app.use(express.json());//para habilitar la recepcion de datos en un request
 app.set('view engine', 'pug');
