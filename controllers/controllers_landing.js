@@ -2,13 +2,15 @@ const Landing = require('../models/model_landing')
 const { db } = require('../utils/dbMongo');
 
 ///convierte String en Numero
-// const toNumber = async() => { 
+// const toNumber = async() => {
 //     await Landing.updateMany(
 //         { 'mass': { $type: 2 } },
 //     [{ $set: { 'mass': { $toDouble: '$mass' } } }]
-//         ) 
-// } 
+//         )
+// }
 // toNumber()
+
+
 
 const createLanding = async (req, res) => {
 
@@ -43,17 +45,16 @@ const getLandingsQuery = async(req, res) => {
     }
 };
 
-const getLandingsMass = async(req, res) => {
+
+
+const getLandingsMass = async (req, res) => {
     let data;
     try {
         if(req.params.mass){
-            console.log(req.params.mass)
             data = await Landing.find({mass: {$gte: req.params.mass}}, 'name mass -_id')
-            console.log(data)
             res.status(200).json(data);
         }else{
             data = await Landing.find({})
-            console.log(data)
             res.status(200).json(data)
         }
     } catch (error) {

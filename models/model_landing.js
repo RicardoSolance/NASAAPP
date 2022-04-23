@@ -5,7 +5,7 @@ const objectSchema = {
     id: String,
     nametype: String,
     recclass: String,
-    mass: String,
+    mass: Number,
     fall: String,
     year: String,
     reclat: String,
@@ -18,5 +18,5 @@ const objectSchema = {
 
 const landingSchema = mongoose.Schema(objectSchema);
 //la colections LAnding
-const Landing = mongoose.model('Landings', landingSchema);
+const Landing = mongoose.model('landings', landingSchema);
 module.exports = Landing;
