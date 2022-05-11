@@ -1,0 +1,27 @@
+.landingscard{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    & > .alllandings{
+        margin-top: 1rem;
+        width: 70%;
+        background-color: rgba(238, 238, 238, 0);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    & > .aside{
+        width: 30%;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 5rem;
+        right: 0;
+        width: 30%;
+        background-color: rgb(84, 84, 155);
+    }
+}

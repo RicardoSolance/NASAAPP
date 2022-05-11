@@ -9,11 +9,11 @@ function Home() {
           const res = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=4N3RGJQyDLinolyEO5E40YA0cKNubQdPxAyc4Kbi`)
           const data = res.data
           const infoHome = {
-            'img': res.data.url,
+            'img': data.url,
             'title': res.data.title
           }
           setInfo(infoHome)
-          console.log('esto es res', res.data.url)
+          // console.log('esto es res', res.data.url)
         } catch (error) {
           console.log('error', error)
       }
