@@ -1,6 +1,23 @@
+@import '../utils/variables.scss';
 .card{
     width: 14rem;
     height: 16rem;
+    font-family: $font-1;
+    font-size: 16px;
+    text-align: center;
     background-color: rgb(241, 247, 245);
     margin-bottom: 0.5rem;
+    inline-size: 14rem; 
+    overflow: hidden;
+    overflow-wrap: break-word;
+    border-radius: 8px;
+
+    & > .title{
+        width: 90%;
+        height: 20%;
+        margin-inline: auto;
+        text-align:center;
+        text-overflow:hidden;
+    }
+    
 }
