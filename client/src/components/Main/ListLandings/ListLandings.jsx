@@ -5,13 +5,13 @@ import Form from '../Form';
 import Card from '../Card';
 
 function ListLandings() {
-  const [allLandings , setAlllandings] = useState([])
+  const [allLandings, setAlllandings] = useState([]);
 
   useEffect(() => {
     async function fetchlandings() {
         try {
           const res = await axios.get(`http://localhost:3000/api/astronomy/landings`)
-          const data = res.data.slice(0,20);
+          const data = res.data.slice(0,50);
           setAlllandings(data)
         } catch (error) {
           console.log('error', error)
@@ -27,8 +27,8 @@ function ListLandings() {
       {allLandings.map((info, i) => <Card value={info} key={i} />)}
       </div>
       <aside className='aside'>
-        <Form/>
-
+        <Form />
+    
       </aside>
     </section>
   )

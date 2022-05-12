@@ -22,8 +22,9 @@ function Home() {
   },[])
   return (
     <section className='home'>
-      <h2>{info.title}</h2>
-      <img src={info.img} alt="imgDay" />
+      <img src={info.img} alt="picoftheday" className='img' />
+      <h1 className='title'>{info.title}</h1>
+      <p>ready to finde some Asteroids ?</p>
     </section>
   )
 }

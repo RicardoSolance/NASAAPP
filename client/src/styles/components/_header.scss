@@ -1,15 +1,16 @@
 @import '../utils/variables.scss';
 .header{
     background-color: $menu-color;
-    height: 5rem;
+    height: 10%;
     width: 100%;
     display: flex;
-    // position: fixed;
+    position: fixed;
+    top:0;
+    z-index: 2;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     border-bottom: 2px solid rgba(158, 158, 158, 0.089);
-    
     & > img {
         width: 4rem;
         margin-bottom: 0.8rem;
