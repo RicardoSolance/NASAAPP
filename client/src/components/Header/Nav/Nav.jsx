@@ -10,7 +10,7 @@ function Nav() {
 
       <Link className='nav__element' to='/neas'>Neas</Link>
    
-      <Link className='nav__element' to='/List'>List Landings</Link>
+      <Link className='nav__element' to='/landings/List'>List Landings</Link>
     </div>
   )
 }

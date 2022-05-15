@@ -67,8 +67,7 @@ const paintMarkers = () => {
     <input type="submit" value='Search'/>
   </form>
   <div id="map">
-     
-        <MapContainer center={[30, 0]} zoom={3} scrollWheelZoom={false} className="mapcontainer">
+    <MapContainer center={[30, 0]} zoom={3} scrollWheelZoom={false} className="mapcontainer">
       <TileLayer attribution='&copy;
       <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

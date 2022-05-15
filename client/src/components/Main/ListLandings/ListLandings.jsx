@@ -1,54 +1,31 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import Form from '../Form';
 import Card from '../Card';
 import { Router, Link } from 'react-router-dom';
+import CardInfo from '../CardInfo';
+import { landingsContext } from '../../../context/landingsContext';
+
 
 function ListLandings() {
-  const [allLandings, setAlllandings] = useState([]);
-  // let lastcolor;
-  useEffect(() => {
-    async function fetchlandings() {
-        try {
-          const res = await axios.get(`http://localhost:3000/api/astronomy/landings`)
-          const data = res.data.slice(0,32);
-          setAlllandings(data);
-        } catch (error) {
-          console.log('error', error)
-      }
-    }
-    fetchlandings();
-  }, [])
-  // const randomcolor = () => {
-  //   const color = ['#8B1DCA', '#031d44', '#ffb627', '#ee6055'];
-    
-  //   const random = Math.floor(Math.random() * (4-1)+1);
-  //   let lastcolor;
-  //   const randumNumber = random;
-  //   let lastnumber = randumNumber;
-  //   // lastcolor == color[random];
-  
-  //   // if (random !== lastcolor) {
-  //   //   return random;
-  //   // } else {
-  //   //   randomcolor();
-  //   // }
-  //   return lastcolor;
-    
-  // }
+ const allLandings = useContext(landingsContext)
 
-  
+//const color = ['#8B1DCA', '#031d44', '#ffb627', '#ee6055'];
+    
+
+  console.log('ya me llega', allLandings);
   return (
+   
     <section className='landingscard'>
       <div className="alllandings">
-      {allLandings.map((info, i) => <Card value={info} key={i} />)}
+          {allLandings.map((info, i) => <Card value={info} key={i} />)}
       </div>
       <aside className='aside'>
         <Form />
     
       </aside>
-    </section>
+      </section>
   )
 }
 

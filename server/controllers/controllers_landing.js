@@ -1,7 +1,7 @@
 const Landing = require('../models/model_landing')
 const { db } = require('../utils/dbMongo');
 
-///convierte String en Numero
+//convierte String en Numero
 // const toNumber = async() => {
 //     await Landing.updateMany(
 //         { 'mass': { $type: 2 } },
@@ -103,10 +103,7 @@ const deleteLanding = async (req, res) => {
         if (req.params.id) {
             await Landing.deleteOne({ id: req.params.id })
             res.status(204).send('Landing Deleted');
-        } else {
-            
-        }
-        
+        } 
     } catch (error) {
         res.status(400).json({'error': error})
     }

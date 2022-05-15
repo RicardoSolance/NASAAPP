@@ -25,17 +25,17 @@ function Card(props) {
   
   return (
     // <div className='card'   style={{backgroundColor:props.color}} >
-    <Link to={`/landings/detail/${id}`}>
+    <Link to={`/landings/list/details/${id}`}>
     <div className='card'   style={{backgroundColor:props.color}} >
-      <h1 className='title'>{name}</h1>
-      <p>{fall} || {nametype} || {id} </p>
-  
-      <div className='botones'>
-        <button onClick={deleteCard}> Delete </button>
-        <button > Update </button>
+        <h1 className='title'>{name}</h1>
+        <p>{fall} || {nametype} || {id} </p>
+    
+        <div className='botones'>
+          <button onClick={deleteCard}> Delete </button>
+          <button > Update </button>
+        </div>
       </div>
-      </div>
-      </Link>
+    </Link>
   )
 }
 
