@@ -1,0 +1,23 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.neasCard{
+    @include Cards;
+    margin: 0.5rem;
+    background-image: radial-gradient( circle farthest-corner at 92.3% 71.5%,  rgba(83,138,214,1) 0%, rgba(134,231,214,1) 90% );
+    transition: all 0.5s ease-in-out;
+    & > .picture{
+        width: 30%;
+        margin: 1rem;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
+    & > .picture:hover{
+        transform: scale(1.8);
+        transform: rotate(15deg);
+    }
+
+}
+.neasCard:hover{
+    background-image: radial-gradient( circle farthest-corner at 92.3% 71.5%,  rgb(88, 140, 214) 0%, rgb(138, 248, 228) 90% );
+}

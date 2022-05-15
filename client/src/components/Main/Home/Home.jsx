@@ -12,7 +12,9 @@ function Home() {
             'img': data.url,
             'title': res.data.title
           }
+          
           setInfo(infoHome)
+          console.log(info.img);
           // console.log('esto es res', res.data.url)
         } catch (error) {
           console.log('error', error)
@@ -21,10 +23,11 @@ function Home() {
     fetchimage();
   },[])
   return (
-    <section className='home'>
-      <img src={info.img} alt="picoftheday" className='img' />
+    <section className='home' style={{ backgroundImage: `url(${info.img})` }}>
+      <iframe src="https://embed.lottiefiles.com/animation/68687" ></iframe>
+      {/* <iframe src="https://embed.lottiefiles.com/animation/62787"></iframe> */}
       <h1 className='title'>{info.title}</h1>
-      <p>ready to finde some Asteroids ?</p>
+      <p>ready to find some Asteroids ?</p>
     </section>
   )
 }

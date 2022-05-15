@@ -2,14 +2,16 @@
 .nav{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    width: 50%;
+    width: 40%;
     &__element {
         text-decoration:none;
         color: black;
-        margin: 0 0.5rem;
-        font-family: monospace;
-        font-size: 0.9rem;
+        font-family:$font-1;
+        font-size: 1rem;
+    }
+    &__element:hover{
+        color:$text-color-2;
     }
 }

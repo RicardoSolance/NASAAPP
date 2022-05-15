@@ -24,23 +24,23 @@ function Form() {
     const res = await axios.post("http://localhost:3000/api/astronomy/landings/create",newLanding);
     const newLand = res.data;
     console.log(newLand)
-   
+    newLanding.from(e.target).forEach((e) => (e.value = ""));
 
   }
   return (
     <div className="formulario">
     <h1 className='title'>Crea una nueva Landing </h1>
       <form onSubmit={createLanding} className='form'>
-        <input type="text" name="name" id="name" placeholder="name" />
-        <input type="number" name="id" placeholder="introduce su id" />
-        <input type="text" name="nametype" id="fall" placeholder="nametype" />
-        <input type="number" name="mass" id="fall" placeholder="introduce su massa" />
-        <input type="text" name="fall" id="fall" placeholder="introduce su fall" />
-        <input type="text" name="recclass" id="recclass" placeholder="introduce su  clase" />
-        <input type="date" name="year" id=" year" placeholder='fecha de creacion' />
+        <input type="text" name="name" id="name" placeholder="Name" />
+        <input type="number" name="id" placeholder=" id" />
+        <input type="text" name="nametype" id="fall" placeholder="Nametype" />
+        <input type="number" name="mass" id="fall" placeholder="Mass" />
+        <input type="text" name="fall" id="fall" placeholder="Fall" />
+        <input type="text" name="recclass" id="recclass" placeholder=" Clase" />
+        <input type="date" name="year" id=" year" placeholder='date' />
         <div className="form-row">
-          <input type="number" name="reclat" id="reclat"  placeholder="latitude"/>
-          <input type="number" name="reclong" id="reclong"  placeholder="longitude" />
+          <input type="number" name="reclat" id="reclat"  placeholder="Latitude"/>
+          <input type="number" name="reclong" id="reclong"  placeholder="Longitude" />
         </div>
         <button type="submit"> Crear nueva landing</button>
     </form>

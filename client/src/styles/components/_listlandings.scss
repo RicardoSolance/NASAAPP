@@ -16,13 +16,13 @@
     }
     & > .aside{
         width: 30%;
-        height: auto;
+        height: 100vh;;
         display: flex;
         align-items: center;
         justify-content:center;
         position: fixed;
-        // top: 5rem;
         right: 0;
-        background-color:#f8f7ff;
+        background-color:#ffffff;
+        border-left: 2px solid rgba(221, 221, 221, 0.295);
     }
 }

@@ -2,36 +2,31 @@
 
 .home{
     width: 100%;
-    height: 590px;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center; 
-    position: static;
-    object-fit:fill;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all .5s;
+    
     & > .title{
-        position: absolute;
         color: rgb(255, 255, 255);
         font-family: $font-1;
         font-size: 70px;
-    }
-    & > .img{
-        width:100%;
-        height:100%;
-        // transition: transform 1s ease-in-out;
-        filter: blur(4px);
-        box-shadow: none;
-       
-        
-    
-    
+        margin: 0;
     }
     & > p{
-        position: absolute;
         color: rgb(255, 255, 255);
         font-family: $font-1;
-        top: 50%;
-        margin-top: 3rem;
         font-size: 20px;
+        margin: 0;
+    }
+    & > iframe{
+        border: none;
+        margin: 0;
     }
    
 
