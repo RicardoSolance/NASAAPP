@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { MapContainer, TileLayer , Marker, Popup} from 'react-leaflet';
 import Markers from '../Markers';
-import "./Landings.css"
+import "./Landings.css";
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 import LocationIcon from "../LocationIcon/LocationIcon";
 import Form from '../Form';
 
 function Landings() {
- /// creo los estados -- y las funciones que modificarán dichos estados
+ // creo los estados -- y las funciones que modificarán dichos estados
    const [value, setValue] = useState('');
    const [selected, setSelected] = useState('');
   const [landings, setLandings] = useState([]);
@@ -47,7 +47,8 @@ function Landings() {
 const paintMarkers = () => {
     return landings.map((landing, i) =><Markers landing={landing} key={i}/>)
   }
-  return ( <section className="landingsMain">
+  return (
+  <section className="landingsMain">
   <form onSubmit={handleSubmit} className="formLan">
     <div className="landignsReq">
       <label htmlFor="selection">Search by: </label>
@@ -66,7 +67,8 @@ const paintMarkers = () => {
     <input type="submit" value='Search'/>
   </form>
   <div id="map">
-    {/* <MapContainer center={[30, 0]} zoom={4} scrollWheelZoom={false} className="mapCont">
+     
+        <MapContainer center={[30, 0]} zoom={3} scrollWheelZoom={false} className="mapcontainer">
       <TileLayer attribution='&copy;
       <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -85,7 +87,7 @@ const paintMarkers = () => {
           </ul>
           </Popup>
         </Marker>:null)}
-    </MapContainer> */}
+    </MapContainer>
   </div>
   </section>);
 }

@@ -17,9 +17,6 @@ function Neas() {
     console.log(random);
     return random;
   }
-  // console.log(picture[randomImg()])
-
-  // // {randomImg(picture)}
 
   useEffect(() => {
     async function ajaxNeas() {
@@ -42,7 +39,7 @@ function Neas() {
         {Allneas.map((neas, i) => <NeasCard info={neas} key={i} pic={picture[randomImg()]} />)}
       </div>
       <div className='plus'>
-
+      
       </div>
     </section>
   )
