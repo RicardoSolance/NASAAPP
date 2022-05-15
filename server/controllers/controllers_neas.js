@@ -27,6 +27,9 @@ const getNeas = async (req, res) => {
         } else if (to) {
             let data = await Neas.find({ discovery_date: { $lte: to } }, 'designation discovery_date -_id');
             res.status(200).json(data);
+        } else {
+            let data = await Neas.find({}, '-_id')
+            res.status(200).json(data);
         }
     } catch (error) {
         res.status(400).json({ error: error });
