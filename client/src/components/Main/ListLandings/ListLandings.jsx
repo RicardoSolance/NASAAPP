@@ -9,7 +9,7 @@ import { landingsContext } from '../../../context/landingsContext';
 import ReactPaginate from 'react-paginate';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import { usePagination } from '@mui/material/Pagination';
+import usePagination from '../../../hooks/paginate';
 
 
 
@@ -19,49 +19,32 @@ function ListLandings() {
  const allLandings = useContext(landingsContext)
 //const color = ['#8B1DCA', '#031d44', '#ffb627', '#ee6055'];
   ///pagination
-const [pageNumber, setPagneNumber] = useState(0); //en que pagina estamos
-const cardPerPage = 8; //cuantas cartas queremos pintar por pagina
-  const visitedPages = pageNumber * cardPerPage // paginas visitadas
-  const pageCount= Math.ceil(allLandings.length / cardPerPage)// nos lo redondea pa arraiba
- console.log(pageCount);
-  const printCards = allLandings.slice(visitedPages, visitedPages + cardPerPage)
-  console.log('print',printCards);
-  
-  const changePage = ({selected}) => {
-    setPagneNumber(selected)
-  }
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 12;
 
-  // console.log('ya me llega', allLandings);
+  const count = Math.ceil(allLandings.length / PER_PAGE);
+  const _DATA = usePagination(allLandings, PER_PAGE);
+
+  const handleChange = (e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
   return (
    
     <section className='landingscard'>
       <div className="alllandings">
-        {printCards.map((info, i) => <Card value={info} key={i} />)}
-        
-        {/* <ReactPaginate
-          
-
-        previousLabel={'previus'}
-        nextLabel={'Next'}
-        pageCount={pageCount}
-         onPageChange={changePage}
-        //  containerClassName={'paginationBtn'}s
-        // previousLinkClassName={'preiousBtn'}
-        // nextLinkClassName={'nextBtn'}
-        // disabledClassName={'paginationDisable'}
-        // activeClassName={'paginationActive'}
- 
-        /> */}
-      <Stack spacing={2}>
-          <Pagination
-            count={pageCount}
-            variant="outlined"
-            onPageChange={changePage}
-          />
-         
-    </Stack>
+        {_DATA.currentData().map((info, i) => <Card value={info} key={i} />)}
+     
       </div>
- 
+      <div className="pagination">
+      <Pagination
+        count={count}
+        size="large"
+        page={page}
+        variant="outlined"
+        onChange={handleChange}
+      />
+      </div>
       <aside className='aside'>
         <Form />
     

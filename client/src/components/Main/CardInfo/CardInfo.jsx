@@ -8,18 +8,18 @@ const CardInfo = () => {
   let { id } = useParams();
   const info = allLandings.filter(land =>  land.id == id )
   const selected = info[0];
-
+  // console.log('selected', selected.id);
   return (
-    <div>
-      <h1>vista detalle</h1>
-      <h1>vista detalle</h1>
-      <h1>vista detalle</h1>
-      <h1>vista detalle</h1>
-      <h1>vista detalle</h1>
-      <h1>vista detalle</h1>
-      <h1>vista detalle</h1>
-    </div>
+    <section className="cardDitails">
+      <div className="img"  >
+
+      </div>
+      <div className="infor">
+
+      </div>
+    </section>
   )
 }
+// style={{ backgroundImage: `url(${info.img})` }}
 
 export default CardInfo
