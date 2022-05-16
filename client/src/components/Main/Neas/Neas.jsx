@@ -14,7 +14,7 @@ function Neas() {
 
   const randomImg = () => {
     const random = Math.floor(Math.random() * (4 - 0) + 0);
-    console.log(random);
+
     return random;
   }
 
