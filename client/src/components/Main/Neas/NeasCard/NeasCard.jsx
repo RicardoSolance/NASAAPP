@@ -2,7 +2,7 @@ import React from 'react';
 
 function NeasCard(info, pic) {
 
-  const { designation, orbit_class, h_mag, discovery_date } = info.info;
+  const { designation, orbit_class} = info.info;
   const  img = info.pic;
  
   return (

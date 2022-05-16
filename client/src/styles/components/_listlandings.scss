@@ -26,3 +26,24 @@
         border-left: 2px solid rgba(221, 221, 221, 0.295);
     }
 }
+
+.paginationBtn{
+    max-width: 200px;
+    height: 40x;
+    // background-color:#df5252;s
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.paginationBtn a {
+    font-size: 12px;
+    padding: 1rem;
+    background-color:#963dc9;
+    color: #ffffff;
+    margin: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}

@@ -13,7 +13,7 @@ function App() {
     async function fetchlandings() {
         try {
           const res = await axios.get(`http://localhost:3000/api/astronomy/landings`)
-          const data = res.data.slice(0,32);
+          const data = res.data.slice(0,100);
           setAlllandings(data);
         } catch (error) {
           console.log('error', error)
