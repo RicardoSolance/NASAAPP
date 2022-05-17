@@ -28,6 +28,9 @@ function ListLandings() {
   return (
    
     <section className='landingscard'>
+      <div className="sortby">
+        <a href="£"> by name</a>
+      </div>
       <div className="alllandings">
         {_DATA.currentData().map((info, i) => <Card value={info} key={i} />)}
      
