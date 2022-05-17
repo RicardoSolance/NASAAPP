@@ -9,11 +9,13 @@ function Home() {
           const res = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=4N3RGJQyDLinolyEO5E40YA0cKNubQdPxAyc4Kbi`)
           const data = res.data
           const infoHome = {
-            'img': res.data.url,
+            'img': data.url,
             'title': res.data.title
           }
+          
           setInfo(infoHome)
-          console.log('esto es res', res.data.url)
+          console.log(info.img);
+          // console.log('esto es res', res.data.url)
         } catch (error) {
           console.log('error', error)
       }
@@ -21,9 +23,11 @@ function Home() {
     fetchimage();
   },[])
   return (
-    <section className='home'>
-      <h2>{info.title}</h2>
-      <img src={info.img} alt="imgDay" />
+    <section className='home' style={{ backgroundImage: `url(${info.img})` }}>
+      <iframe src="https://embed.lottiefiles.com/animation/68687" ></iframe>
+      {/* <iframe src="https://embed.lottiefiles.com/animation/62787"></iframe> */}
+      <h1 className='title'>{info.title}</h1>
+      <p>ready to find some Asteroids ?</p>
     </section>
   )
 }

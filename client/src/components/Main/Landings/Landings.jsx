@@ -5,6 +5,8 @@ import "./Landings.css"
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 import LocationIcon from "../LocationIcon/LocationIcon";
+import Form from '../Form';
+
 function Landings() {
  /// creo los estados -- y las funciones que modificarán dichos estados
    const [value, setValue] = useState('');
@@ -24,7 +26,7 @@ function Landings() {
           } else {
             setLandings(json)
          }
-          console.log('esto me trae landings', landings);
+          // console.log('esto me trae landings', landings);
         } catch (error) {
           console.log('error', error)
         // }
@@ -45,8 +47,8 @@ function Landings() {
 const paintMarkers = () => {
     return landings.map((landing, i) =><Markers landing={landing} key={i}/>)
   }
-    return <>
-  <form onSubmit={handleSubmit}>
+  return ( <section className="landingsMain">
+  <form onSubmit={handleSubmit} className="formLan">
     <div className="landignsReq">
       <label htmlFor="selection">Search by: </label>
       <select name="selection">
@@ -64,18 +66,27 @@ const paintMarkers = () => {
     <input type="submit" value='Search'/>
   </form>
   <div id="map">
-    <MapContainer center={[30, 0]} zoom={4} scrollWheelZoom={false} className="mapCont">
+    {/* <MapContainer center={[30, 0]} zoom={4} scrollWheelZoom={false} className="mapCont">
       <TileLayer attribution='&copy;
       <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {landings.map(landing=>landing.reclat?<Marker position={[landing.reclat, landing.reclong]} icon={LocationIcon}>
           <Popup>
-            Name: {landing.name} <br /> Landing year: {landing.year}
+          <ul>
+            <li> Name: {landing.name}</li>
+            <li>Id: {landing.id}</li>
+            <li>Year: {landing.year}</li>
+            <li>Class: {landing.recclass}</li>
+            <li>Mass: {landing.mass}</li>
+            <li>Fall: {landing.fall}</li>
+            <li>Latitude: {landing.reclat}</li>
+            <li>Longitude: {landing.reclong}</li>
+          </ul>
           </Popup>
         </Marker>:null)}
-    </MapContainer>
+    </MapContainer> */}
   </div>
-  </>;
+  </section>);
 }
 export default Landings

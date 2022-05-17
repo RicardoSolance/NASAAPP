@@ -1,0 +1,21 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.neas-section{
+    @include section;
+    & > .allneas{
+        margin-top: 4rem;
+        @include list-row;
+        // background-color: #091929;
+    }
+    & > .plus{
+        position: fixed;
+        width: 5rem;
+        height: 5rem;
+        background-color: #8BC6EC;
+        background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+        border-radius: 50%;
+        top: 75%;
+        right: 3%; 
+    }
+}

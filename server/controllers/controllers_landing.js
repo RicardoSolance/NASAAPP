@@ -17,7 +17,7 @@ const createLanding = async (req, res) => {
     try {
         const lan = req.body;
         await Landing.create(lan);
-        res.status(201).json({"messsage": "landi created"})
+        res.status(201).json({"messsage": "landing created"})
     } catch (error) {
         res.status(400).json({'error': error})
     }
@@ -39,6 +39,9 @@ const getLandingsQuery = async(req, res) => {
         } else if (minimum_mass) {
             let data = await Landing.find({ 'mass': { $gte: minimum_mass } }, 'name recclass -_id')
             res.status(200).json(data);
+        }else{
+            data = await Landing.find({})
+            res.status(200).json(data)
         }
     } catch (error) {
         res.status(400).json({'error': error})
@@ -51,7 +54,7 @@ const getLandingsMass = async (req, res) => {
     let data;
     try {
         if(req.params.mass){
-            data = await Landing.find({mass: {$gte: req.params.mass}}, 'name mass -_id')
+            data = await Landing.find({mass: {$gte: req.params.mass}}, '-_id')
             res.status(200).json(data);
         }else{
             data = await Landing.find({})
@@ -66,7 +69,7 @@ const getLandingClass = async(req, res) => {
     let data;
     try {
         if(req.params.recclass){
-            data = await Landing.find({'recclass':req.params.reclass}, 'name recclass -_id')
+            data = await Landing.find({'recclass':req.params.reclass}, '-_id')
             res.status(200).json(data);
         }else{
             data = await Landing.find({}, '-_id')

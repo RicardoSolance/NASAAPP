@@ -1,0 +1,69 @@
+@import '../utils/variables.scss';
+.formulario{
+    width: 95%;
+    min-height: 690px;
+    // background-color: rgb(226, 83, 83);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    & > .title{
+        font-family: $font-1;
+        font-weight: 500;
+        text-align: center;
+        // padding: 0.5rem;
+        color: rgb(59, 59, 59);
+    }
+    & > .form{
+        width: 90%;
+        min-height: 420px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        // background-color: rgb(61, 142, 212);
+        // box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        
+        & > input{
+            width: 70%;
+            height: 2rem;
+            margin-top: 0.5rem;
+            font-size: 16px;
+            text-align: center;
+            color: rgb(65, 65, 65);
+            // border: none;
+            border: 2px solid rgba(0, 0, 0, 0.144);
+            outline: none;
+            border-radius: 0.5rem;
+            font-family:Arial, Helvetica, sans-serif;
+            // box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+        }
+        ::placeholder{
+            color: rgba(122, 122, 122, 0.384);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 14px;
+        }
+        & > .form-row{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 5px;
+            & > input{
+                width: 30%;
+                height: 2rem;
+                margin: 0.5rem;
+                border: 2px solid rgba(0, 0, 0, 0.144);
+                border-radius: 0.3rem;
+                // border-color:  rgba(102, 51, 153, 0.014);
+                outline: none;
+                
+            }
+        }
+    }
+
+
+}
