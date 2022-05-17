@@ -12,13 +12,10 @@ import Stack from '@mui/material/Stack';
 import usePagination from '../../../hooks/paginate';
 
 
-
-
-
 function ListLandings() {
-  const { allLandings, setAlllandings } = useContext(landingsContext)
 
-  ///pagination
+ const allLandings = useContext(landingsContext)
+///-----------------------------------pagination
   let [page, setPage] = useState(1);
   const PER_PAGE = 12;
 
@@ -55,11 +52,8 @@ function ListLandings() {
   return (
    
     <section className='landingscard'>
-      <div className="container-ladings">
-        <div className='searchby'>
-          <a onClick={handleSortName}>Sort by name</a>
-          <a onClick={handleSortYear} >Sort by year</a>
-          <a onClick={handleSortMass}>Sort by mass</a>
+      <div className="sortby">
+        <a href="#">Sort by name</a>
       </div>
       <div className="alllandings">
         {_DATA.currentData().map((info, i) => <Card value={info} key={i} />)}
