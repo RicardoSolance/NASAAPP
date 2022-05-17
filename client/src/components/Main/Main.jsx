@@ -11,9 +11,9 @@ const Main = () => {
             <Route path='/' element={<Home/>} exact/>
             <Route path='/landings' element={<Landings/>}/>
             <Route path='/neas' element={<Neas />} />
-            <Route path='/list' element={<ListLandings />} />
-           <Route path='list/details/:id' element={<Cardinfo />} />
-      
+            <Route path='/landings/list' element={<ListLandings />} />
+           <Route path='/landings/list/details/:id' element={<Cardinfo />} />
+
           </Routes>
         </main>;
 };

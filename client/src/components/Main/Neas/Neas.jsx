@@ -6,20 +6,22 @@ import pic_1 from '../../../assets/asteroids/asteroid.png'
 import pic_2 from '../../../assets/asteroids/asteroid2.png'
 import pic_3 from '../../../assets/asteroids/asteroid3.png'
 import pic_4  from '../../../assets/asteroids/asteroid4.png'
+import { color } from '@mui/system';
 
 function Neas() {
   const [Allneas, setAllneas] = useState([]);
 
   const picture = [pic_1, pic_2, pic_3, pic_4];
 
-  const randomImg = () => {
-    const random = Math.floor(Math.random() * (4 - 0) + 0);
-    console.log(random);
-    return random;
-  }
-  // console.log(picture[randomImg()])
+  // const randomImg = () => {
+  //   // const random = Math.floor(Math.random() * (4 - 0) + 0);
+  //   // console.log('veces ', random);
+  //   // return random;
+  //   // const shuffledArray = picture.sort((a, b) => 0.5 - Math.random());
+  //   // console.log('suflee', shuffledArray);
+  //   // return shuffledArray;
+  // }
 
-  // // {randomImg(picture)}
 
   useEffect(() => {
     async function ajaxNeas() {
@@ -39,10 +41,10 @@ function Neas() {
   return (
     <section className='neas-section'>
       <div className="allneas">
-        {Allneas.map((neas, i) => <NeasCard info={neas} key={i} pic={picture[randomImg()]} />)}
+      {Allneas.map((neas, i) => <NeasCard info={neas} key={i}  />)}
       </div>
       <div className='plus'>
-
+      
       </div>
     </section>
   )

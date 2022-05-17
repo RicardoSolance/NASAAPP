@@ -1,54 +1,83 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useContext , useState} from 'react';
 import Form from '../Form';
 import Card from '../Card';
 import { Router, Link } from 'react-router-dom';
+import CardInfo from '../CardInfo';
+import { landingsContext } from '../../../context/landingsContext';
+import ReactPaginate from 'react-paginate';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import usePagination from '../../../hooks/paginate';
+
+
+
+
 
 function ListLandings() {
-  const [allLandings, setAlllandings] = useState([]);
-  // let lastcolor;
-  useEffect(() => {
-    async function fetchlandings() {
-        try {
-          const res = await axios.get(`http://localhost:3000/api/astronomy/landings`)
-          const data = res.data.slice(0,32);
-          setAlllandings(data);
-        } catch (error) {
-          console.log('error', error)
-      }
-    }
-    fetchlandings();
-  }, [])
-  // const randomcolor = () => {
-  //   const color = ['#8B1DCA', '#031d44', '#ffb627', '#ee6055'];
-    
-  //   const random = Math.floor(Math.random() * (4-1)+1);
-  //   let lastcolor;
-  //   const randumNumber = random;
-  //   let lastnumber = randumNumber;
-  //   // lastcolor == color[random];
-  
-  //   // if (random !== lastcolor) {
-  //   //   return random;
-  //   // } else {
-  //   //   randomcolor();
-  //   // }
-  //   return lastcolor;
-    
-  // }
+  const { allLandings, setAlllandings } = useContext(landingsContext)
 
-  
+  ///pagination
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 12;
+
+  const count = Math.ceil(allLandings.length / PER_PAGE);
+  const _DATA = usePagination(allLandings, PER_PAGE);
+
+  const handleChange = (e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
+  // console.log('all landings', allLandings);
+  const handleSortName = () => {
+    const sorted = [...allLandings].sort((a,b)=>{
+      return a.name > b.name ? 1: -1
+    })
+    setAlllandings(sorted)
+    
+  };
+  const handleSortYear = () => {
+    const sorted = [...allLandings].sort((a,b)=>{
+      return a.year > b.year ? 1: -1
+    })
+    setAlllandings(sorted)
+  };
+
+  const handleSortMass = () => {
+    const sorted = [...allLandings].sort((a,b)=>{
+      return a.mass > b.mass ? 1: -1
+    })
+    setAlllandings(sorted)
+  };
+
+
   return (
+   
     <section className='landingscard'>
+      <div className="container-ladings">
+        <div className='searchby'>
+          <a onClick={handleSortName}>Sort by name</a>
+          <a onClick={handleSortYear} >Sort by year</a>
+          <a onClick={handleSortMass}>Sort by mass</a>
+      </div>
       <div className="alllandings">
-      {allLandings.map((info, i) => <Card value={info} key={i} />)}
+        {_DATA.currentData().map((info, i) => <Card value={info} key={i} />)}
+      </div>
+      </div>
+      <div className="pagination">
+      <Pagination
+        count={count}
+        size="large"
+        page={page}
+        variant="outlined"
+        onChange={handleChange}
+      />
       </div>
       <aside className='aside'>
         <Form />
-    
       </aside>
-    </section>
+      </section>
   )
 }
 
