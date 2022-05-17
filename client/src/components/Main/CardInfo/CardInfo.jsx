@@ -8,7 +8,6 @@ const CardInfo = () => {
   let { id } = useParams();
   const info = allLandings.filter(land =>  land.id == id )
   const selected = info[0];
-  // console.log('selected', selected.id);
   return (
     <section className="cardDitails">
       <div className="img"  >
