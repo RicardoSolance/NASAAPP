@@ -12,13 +12,9 @@ import Stack from '@mui/material/Stack';
 import usePagination from '../../../hooks/paginate';
 
 
-
-
-
 function ListLandings() {
  const allLandings = useContext(landingsContext)
-//const color = ['#8B1DCA', '#031d44', '#ffb627', '#ee6055'];
-  ///pagination
+///-----------------------------------pagination
   let [page, setPage] = useState(1);
   const PER_PAGE = 12;
 
