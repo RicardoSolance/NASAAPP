@@ -20,10 +20,15 @@ function App() {
       }
     }
     fetchlandings();
-  }, [])
+  }, [allLandings])
+
+  const obj = {
+    allLandings,
+    setAlllandings
+  }
   return (
     <div className="App">
-      <landingsContext.Provider value={allLandings}>
+      <landingsContext.Provider value={obj}>
 
      
       <BrowserRouter>

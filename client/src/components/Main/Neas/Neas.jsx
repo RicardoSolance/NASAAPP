@@ -8,16 +8,9 @@ import pic_3 from '../../../assets/asteroids/asteroid3.png';
 import pic_4 from '../../../assets/asteroids/asteroid4.png';
 import plus from '../../../assets/plus.png';
 
+
 function Neas() {
   const [Allneas, setAllneas] = useState([]);
-
-  const picture = [pic_1, pic_2, pic_3, pic_4];
-
-  const randomImg = () => {
-    const random = Math.floor(Math.random() * (4 - 0) + 0);
-    console.log(random);
-    return random;
-  }
 
   useEffect(() => {
     async function ajaxNeas() {
@@ -37,7 +30,7 @@ function Neas() {
   return (
     <section className='neas-section'>
       <div className="allneas">
-        {Allneas.map((neas, i) => <NeasCard info={neas} key={i} pic={picture[randomImg()]} />)}
+      {Allneas.map((neas, i) => <NeasCard info={neas} key={i}  />)}
       </div>
       <div className='plus'>
          <img src={plus} />

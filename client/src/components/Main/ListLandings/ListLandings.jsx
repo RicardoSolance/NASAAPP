@@ -13,6 +13,7 @@ import usePagination from '../../../hooks/paginate';
 
 
 function ListLandings() {
+
  const allLandings = useContext(landingsContext)
 ///-----------------------------------pagination
   let [page, setPage] = useState(1);
@@ -25,6 +26,29 @@ function ListLandings() {
     setPage(p);
     _DATA.jump(p);
   };
+  // console.log('all landings', allLandings);
+  const handleSortName = () => {
+    const sorted = [...allLandings].sort((a,b)=>{
+      return a.name > b.name ? 1: -1
+    })
+    setAlllandings(sorted)
+    
+  };
+  const handleSortYear = () => {
+    const sorted = [...allLandings].sort((a,b)=>{
+      return a.year > b.year ? 1: -1
+    })
+    setAlllandings(sorted)
+  };
+
+  const handleSortMass = () => {
+    const sorted = [...allLandings].sort((a,b)=>{
+      return a.mass > b.mass ? 1: -1
+    })
+    setAlllandings(sorted)
+  };
+
+
   return (
    
     <section className='landingscard'>
@@ -33,7 +57,7 @@ function ListLandings() {
       </div>
       <div className="alllandings">
         {_DATA.currentData().map((info, i) => <Card value={info} key={i} />)}
-     
+      </div>
       </div>
       <div className="pagination">
       <Pagination
@@ -46,7 +70,6 @@ function ListLandings() {
       </div>
       <aside className='aside'>
         <Form />
-    
       </aside>
       </section>
   )
