@@ -1,13 +1,13 @@
 @import '../utils/variables.scss';
 .landingsMain{
     width: 100%;
-    min-height: 380px;
-    // background-color: rgb(255, 255, 255);
-    margin-top: 4rem;
+    min-height: 80vh;
+    background-color: rgb(204, 30, 137);
+    margin-top: 10vh;
     & > .formLan{
         width: 100%;
-        height: 4rem;
-        background-color: rgb(248, 248, 248);
+        height: 8%;
+        background-color: rgb(245, 245, 245);
         display: flex;
         flex-wrap: wrap;
         position: fixed;
@@ -21,7 +21,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
             & > select{
                 height: 2rem;
                 width: 6rem;
@@ -36,7 +35,6 @@
                     padding: 2rem;
                     border-bottom: 1px solid rgb(197, 197, 197);
                 }
-
             }
             & > input[type="text"]{
                 height: 2rem;
@@ -50,20 +48,17 @@
             }
         }
     }& > #map{
-        // background-color: rgb(7, 104, 216);
         margin-inline: auto;
         width: 100%;
-        height: 500px;
-        min-height: 600px;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        // position: relative;
         & > .mapcontainer{
             width: 100%;
-            height: 80%;
+            height: 80vh;
             z-index: 0;
-            
+            margin-top: 4.5rem;
         }
     }
 }
